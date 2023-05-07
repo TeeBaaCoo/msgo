@@ -24,9 +24,9 @@ ok:
 tencent:
   sms:
     account:
-      secret_id: AKID87sUyKekeNvRqqiAXJIB0kLKG61NXYs3
-      secret_key: 99yg7WlohPtdAWsBOrFdv8HH30tc6KI9
-      sign_name: msgo公众号
-      sms_sdk_app_id: 1400818781
-      template_id: 1788100
+      secret_id:
+      secret_key:
+      sign_name:
+      sms_sdk_app_id:
+      template_id:
         
