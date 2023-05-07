@@ -1,0 +1,32 @@
+Spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.91.129:3306/msgo
+    username: root
+    password: 123456
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.*
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+# HTTP 连接配置
+ok:
+  http:
+    connect_timeout: 30
+    keep_alive_duration: 300
+    max_idle_connections: 200
+    read_timeout: 30
+    write_timeout: 30
+    
+# 腾讯云
+tencent:
+  sms:
+    account:
+      secret_id: AKID87sUyKekeNvRqqiAXJIB0kLKG61NXYs3
+      secret_key: 99yg7WlohPtdAWsBOrFdv8HH30tc6KI9
+      sign_name: msgo公众号
+      sms_sdk_app_id: 1400818781
+      template_id: 1788100
+        
