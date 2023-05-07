@@ -28,7 +28,7 @@ import java.util.List;
 
 /**
  * @author zk
- * @date 2023/5/7
+ * @since 2023/5/7
  * 接入腾讯云
  */
 @Service
@@ -121,7 +121,6 @@ public class TencentSmsScript implements SmsScript{
         httpProfile.setEndpoint(URL);
         ClientProfile clientProfile = new ClientProfile();
         clientProfile.setHttpProfile(httpProfile);
-        SmsClient client = new SmsClient(cred, REGION, clientProfile);
-        return client;
+        return new SmsClient(cred, REGION, clientProfile);
     }
 }

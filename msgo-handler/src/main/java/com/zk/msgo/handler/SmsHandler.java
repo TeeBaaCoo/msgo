@@ -1,7 +1,6 @@
 package com.zk.msgo.handler;
 
 import cn.hutool.core.collection.CollUtil;
-import com.tencentcloudapi.tci.v20190318.models.LightStandard;
 import com.zk.msgo.dao.SmsRecordDao;
 import com.zk.msgo.domain.SmsRecord;
 import com.zk.msgo.pojo.SmsParam;

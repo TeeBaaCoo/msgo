@@ -1,9 +1,7 @@
 package com.zk.msgo.utils;
 
 import cn.hutool.core.map.MapUtil;
-import cn.hutool.json.JSON;
 import com.google.common.base.Throwables;
-import com.zk.msgo.config.OkHttpConfiguration;
 import lombok.Data;
 import okhttp3.*;
 import org.slf4j.Logger;
@@ -17,7 +15,7 @@ import java.util.Map;
 
 /**
  * @author zk
- * @date 2023/5/7
+ * @since 2023/5/7
  */
 @Data
 @Component
@@ -33,7 +31,7 @@ public class OkHttpUtils {
     /**
      * get 请求
      *
-     * @param url
+     * @param url url
      * @return string
      */
     public String doGet(String url) {
@@ -43,8 +41,8 @@ public class OkHttpUtils {
     /**
      * get 请求
      *
-     * @param url
-     * @param params
+     * @param url url
+     * @param params params
      * @return string
      */
     public String doGet(String url, Map<String, String> params) {
@@ -53,8 +51,8 @@ public class OkHttpUtils {
     /**
      * get 请求
      *
-     * @param url
-     * @param headers
+     * @param url url
+     * @param headers headers
      * @return string
      */
     public String doGetWithHeaders(String url, Map<String, String> headers) {
@@ -64,9 +62,9 @@ public class OkHttpUtils {
     /**
      * get 请求
      *
-     * @param url
-     * @param params
-     * @param headers
+     * @param url url
+     * @param params params
+     * @param headers headers
      * @return string
      */
     public String doGet(String url, Map<String, String> params, Map<String, String> headers) {
@@ -92,9 +90,9 @@ public class OkHttpUtils {
     /**
      * post 请求
      *
-     * @param url
-     * @param params
-     * @param headers
+     * @param url url
+     * @param params params
+     * @param headers headers
      * @return String
      */
     public String doPost(String url, Map<String, String> params, Map<String, String> headers) {
@@ -115,10 +113,10 @@ public class OkHttpUtils {
     /**
      * 获取request Builder
      *
-     * @param headers
-     * @return
+     * @param headers headers
+     * @return Request
      */
-    private  Request.Builder getBuilderWithHeaders(Map<String, String> headers) {
+    private Request.Builder getBuilderWithHeaders(Map<String, String> headers) {
         Request.Builder builder = new Request.Builder();
         if (!MapUtil.isEmpty(headers)) {
             for ( Map.Entry<String, String> entry : headers.entrySet()) {
@@ -153,18 +151,14 @@ public class OkHttpUtils {
     }
 
     private String execute(Request request) {
-        Response response = null;
-        try {
-            response = okHttpClient.newCall(request).execute();
+        try (Response response = okHttpClient.newCall(request).execute()) {
             if (response.isSuccessful()) {
-                return response.body().string();
+                if (response.body() != null) {
+                    return response.body().string();
+                }
             }
         } catch (IOException e) {
             logger.error(Throwables.getStackTraceAsString(e));
-        } finally {
-            if (response != null) {
-                response.close();
-            }
         }
         return "";
     }

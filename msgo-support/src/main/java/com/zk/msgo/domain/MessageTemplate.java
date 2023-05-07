@@ -1,11 +1,9 @@
 package com.zk.msgo.domain;
 
-import com.zk.msgo.enums.IdType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.intellij.lang.annotations.Identifier;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

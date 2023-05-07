@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author zk
- * @date 2023/5/7
+ * @since 2023/5/7
  * ok配置
  */
 @Configuration
