@@ -8,7 +8,7 @@
         <module>msgo-web</module>
         <module>msgo-common</module>
         <module>msgo-api</module>
-        <module>msgo-api-impl</module>
+        <module>msgo-service</module>
         <module>msgo-support</module>
         <module>msgo-handler</module>
     </modules>

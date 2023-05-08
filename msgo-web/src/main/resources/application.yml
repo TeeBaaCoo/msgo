@@ -4,6 +4,19 @@ Spring:
     url:
     username: root
     password:
+  #kafka
+  kafka:
+    bootstrap-servers:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id:
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto:
+        offset:
+          reset: earliest
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
